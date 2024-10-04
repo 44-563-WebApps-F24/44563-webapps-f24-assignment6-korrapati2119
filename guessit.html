@@ -29,6 +29,28 @@
         }
         document.getElementById('guessing').innerHTML=`Attempts : ${attempts}, wrong guess =${wrong}`;
     }
+    </script><br>
+    <div>
+        <img id="plants" src="plant1.jpg" alt="PLANT 1" width="200" height="200" onclick="nextImage()">
+    </div>
+    <script>
+        let showing = 1;
+        function nextImage(){
+            switch(showing){
+            case 1: 
+            document.getElementById('plants').src='plant2.jpg';
+            showing = 2;
+            break;
+            case 2:
+                document.getElementById('plants').src='plant3.jpg';
+                showing = 3;
+                break;
+                case 3:
+                    document.getElementById('plants').src='plant1.jpg';
+                    showing = 1;
+                    break;
+            }
+        }
     </script>
 </body>
 </html> 
