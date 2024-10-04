@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title> GUESS </title>
+ </head>
+<body>
+<h3>Guess the color VENKATA KISHORE KORRAPATI </h3>
+<form>
+    <label for="mysteryColor"> Guess the color : </label>
+    <input type="password" id="mysteryColor" value ="Red">
+    <label for="guessColor" > Enter a guess : </label>
+    <input type="text" id="guessColor">
+    <button type="button" onclick="processColor()">Check the color</button>
+</form>
+    <div id="guessing"></div>
+    <script>
+    let attempts = 0;
+    let wrong = 0;
+    function processColor(){
+        const mysteryColor = document.getElementById('mysteryColor').value;
+        const guessColor = document.getElementById('guessColor').value;
+        attempts++;
+        if(guessColor.toLowerCase() !== mysteryColor.toLowerCase()){
+        wrong++;
+            alert("Not matched");
+        }
+        else{
+            alert("Matched");
+        }
+        document.getElementById('guessing').innerHTML=`Attempts : ${attempts}, wrong guess =${wrong}`;
+    }
+    </script>
+</body>
+</html> 
