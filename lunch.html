@@ -10,7 +10,7 @@
 <label for="side"> Side </label><br>
 <input type="checkbox" id="in" value="In">
 <label for="eat"> Eat in </label><br><br>
-<button type="button" onclick="startLunch()">Start a lunch order</button>
+<button type="button" onclick="startLunch()">Start a lunch order</button><br><br>
 <div id="lunch"></div>
 <script>
     let my_lunch={};
@@ -20,6 +20,22 @@
       my_lunch.side = document.getElementById('side').checked;
       my_lunch.in = document.getElementById('in').checked;
       document.getElementById('lunch').innerHTML= JSON.stringify(my_lunch, null);
+    }
+</script>
+<form>
+    <label for="property"> Enter property: </label>
+    <input type="text" id="property" value="entree">
+    <label for="value"> Set it to:</label>
+    <input type="text" id="value">
+    <button type="button" onclick="updateLunch()">Update the lunch</button>
+</form>
+<div id="lunch"></div>
+<script>
+    function updateLunch(){
+        const property=document.getElementById('property').value;
+        const value = document.getElementById('value').value;
+        my_lunch[property]=value;
+        document.getElementById('lunch').innerHTML=JSON.stringify(my_lunch,null);
     }
 </script>
 </body>
