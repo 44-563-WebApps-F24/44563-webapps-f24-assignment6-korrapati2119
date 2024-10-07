@@ -13,7 +13,7 @@
 <h2> VENKATA KISHORE KORRAPATI figures out</h2>
 <form>
     <label for="firstvalue"> Enter a number : </label>
-    <input type="number" id="firstvalue" value="2"><br><br>
+    <input type="number" id="firstvalue" value="2" ><br><br>
     <label for="secondvalue"> Enter a number : </label>
     <input type="number" id="secondvalue" value="12"><br><br>
     <button type="button" onclick="powerSum()"> Compute </button>
@@ -30,5 +30,49 @@
         }
     </script>
 </form>
+<form>
+    <input type="radio" name="cal" value="max" onclick="processRadio()">
+    <label for="max" > Max </label>
+    <input type="radio" name="cal" value="min" onclick="processRadio()">
+    <label for="min"> Min </label>
+    <input type="radio" name="cal" value="avg" onclick="processRadio()">
+    <label for="avg"> Average </label>
+    <input type="radio" name="cal" value="geo" onclick="processRadio()">
+    <label for="geo"> Geometric </label>
+</form>
+<div id="finalresult"></div>
+<script>
+    function processRadio(){
+        const firstvalue = parseFloat(document.getElementById('firstvalue').value);
+        const secondvalue = parseFloat(document.getElementById('secondvalue').value);
+        const radios = document.getElementsByName('cal');
+        let operation='';
+        let finalresult;
+        for(const radio of radios){
+            if(radio.checked){
+                switch(radio.value){
+                    case 'max':
+                        finalresult = Math.max(firstvalue,secondvalue);
+                        operation='Maximum';
+                        break;
+                    case 'min':
+                        finalresult = Math.min(firstvalue,secondvalue);
+                        operation='Minimum';
+                        break;
+                    case 'avg':
+                        finalresult = (firstvalue + secondvalue) / 2;
+                        operation='Average';
+                        break;
+                    case 'geo':
+                        finalresult = Math.sqrt(firstvalue*secondvalue);
+                        operation='Geometric Mean';
+                        break;
+                }
+                break;
+            }
+        }
+        document.getElementById('finalresult').innerHTML = (`computed ${operation} with values ${firstvalue} and ${secondvalue} and the result is ${finalresult}`);
+    }
+</script>
 </body>
 </html> 

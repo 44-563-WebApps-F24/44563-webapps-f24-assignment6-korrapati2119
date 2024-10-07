@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+ <head> <title> ORDER </title></head>
+<body>
+<h3 align="center"> orders a lunch </h3>
+<input type="checkbox" id="drink" value="Drink">
+<label for="drink"> Drink </label><br>
+<input type="checkbox" id="side" value="Side">
+<label for="side"> Side </label><br>
+<input type="checkbox" id="in" value="In">
+<label for="eat"> Eat in </label><br><br>
+<button type="button" onclick="startLunch()">Start a lunch order</button>
+<div id="lunch"></div>
+<script>
+    let my_lunch={};
+    function  startLunch(){
+      my_lunch={};
+      my_lunch.drink = document.getElementById('drink').checked;
+      my_lunch.side = document.getElementById('side').checked;
+      my_lunch.in = document.getElementById('in').checked;
+      document.getElementById('lunch').innerHTML= JSON.stringify(my_lunch, null, 2);
+    }
+</script>
+</body>
+</html> 
